@@ -1,7 +1,12 @@
 class HelloWorld extends React.Component{
+    getSomeUrl(){
+        return "Https://google.com"
+    }
+    
+    
     render(){
         let my="My new row";
-        return (<h1 title={this.props.title} >Hello World {this.props.myName}</h1>)
+        return (<h1 title={this.props.title} >Hello World {this.props.myName}  and url {this.getSomeUrl()}</h1>)
     }
 }
 

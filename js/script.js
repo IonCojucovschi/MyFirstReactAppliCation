@@ -1,11 +1,17 @@
 class HelloWorld extends React.Component {
+    getSomeUrl() {
+        return "Https://google.com";
+    }
+
     render() {
         let my = "My new row";
         return React.createElement(
             "h1",
             { title: this.props.title },
             "Hello World ",
-            this.props.myName
+            this.props.myName,
+            "  and url ",
+            this.getSomeUrl()
         );
     }
 }
