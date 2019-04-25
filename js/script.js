@@ -1,7 +1,11 @@
-let h1varable = React.createElement(
-    "h1",
-    null,
-    "Hello World"
-);
+class HelloWorld extends React.Component {
+    render() {
+        return React.createElement(
+            "h1",
+            null,
+            "Hello World From Component !!"
+        );
+    }
+}
 
-ReactDOM.render(h1varable, document.getElementById("root"));
+ReactDOM.render(React.createElement(HelloWorld, null), document.getElementById("root"));

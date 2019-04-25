@@ -1,5 +1,9 @@
-let h1varable=<h1>Hello World</h1>;
+class HelloWorld extends React.Component{
+    render(){
+        return <h1>Hello World From Component !!</h1>
+    }
+}
 
 ReactDOM.render(
-    h1varable,document.getElementById("root")
+    <HelloWorld/>,document.getElementById("root")
 );
