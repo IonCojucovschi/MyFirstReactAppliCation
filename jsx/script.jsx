@@ -1,3 +1,5 @@
+let h1varable=<h1>Hello World</h1>;
+
 ReactDOM.render(
-    <h1>Hello World</h1>,document.getElementById("root")
+    h1varable,document.getElementById("root")
 );

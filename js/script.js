@@ -1,5 +1,7 @@
-ReactDOM.render(React.createElement(
+let h1varable = React.createElement(
     "h1",
     null,
     "Hello World"
-), document.getElementById("root"));
+);
+
+ReactDOM.render(h1varable, document.getElementById("root"));
