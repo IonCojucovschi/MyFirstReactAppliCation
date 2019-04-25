@@ -1,9 +1,11 @@
 class HelloWorld extends React.Component{
     render(){
-        return <h1>Hello World From Component !!</h1>
+        let my="My new row";
+        return (<h1 title={this.props.title} >Hello World {this.props.myName}</h1>)
     }
 }
 
+
 ReactDOM.render(
-    <HelloWorld/>,document.getElementById("root")
+    <HelloWorld myName="my name  is ...." title="Some property wich is inheritedt by all child class"/>,document.getElementById("root")
 );
