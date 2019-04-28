@@ -1,16 +1,32 @@
-class HelloWorld extends React.Component{
-    getSomeUrl(){
-        return "Https://google.com"
+const DigitalClock=function(props){
+    return <div>{props.time}</div>
+}
+
+
+class Clock extends React.Component{
+    constructor(props){
+       super(props);
+       this.state={
+         currentTime:(new Date()).toLocaleString()  
+       }
+       this.clockLauncer()
     }
-    
-    
+
+clockLauncer()
+{
+    setInterval(()=>{
+        console.log("Time was change !!");
+        this.setState({
+            currentTime:(new Date()).toLocaleString()  
+        });
+    },1000);
+}
     render(){
-        let my="My new row";
-        return (<h1 style={{backgroundColor:"#eeeeee"}} title={this.props.title} >Hello World {this.props.myName}  and url {this.getSomeUrl()}</h1>)
+        return <DigitalClock time={this.state.currentTime}/>
     }
 }
 
 
 ReactDOM.render(
-    <HelloWorld myName="my name  is ...." title="Some property wich is inheritedt by all child class"/>,document.getElementById("root")
+    <Clock/>,document.getElementById("root")
 );

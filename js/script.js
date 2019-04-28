@@ -1,19 +1,31 @@
-class HelloWorld extends React.Component {
-    getSomeUrl() {
-        return "Https://google.com";
+const DigitalClock = function (props) {
+    return React.createElement(
+        "div",
+        null,
+        props.time
+    );
+};
+
+class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentTime: new Date().toLocaleString()
+        };
+        this.clockLauncer();
     }
 
+    clockLauncer() {
+        setInterval(() => {
+            console.log("Time was change !!");
+            this.setState({
+                currentTime: new Date().toLocaleString()
+            });
+        }, 1000);
+    }
     render() {
-        let my = "My new row";
-        return React.createElement(
-            "h1",
-            { style: { backgroundColor: "#eeeeee" }, title: this.props.title },
-            "Hello World ",
-            this.props.myName,
-            "  and url ",
-            this.getSomeUrl()
-        );
+        return React.createElement(DigitalClock, { time: this.state.currentTime });
     }
 }
 
-ReactDOM.render(React.createElement(HelloWorld, { myName: "my name  is ....", title: "Some property wich is inheritedt by all child class" }), document.getElementById("root"));
+ReactDOM.render(React.createElement(Clock, null), document.getElementById("root"));
