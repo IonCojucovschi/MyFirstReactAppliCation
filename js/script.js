@@ -7,7 +7,7 @@ class HelloWorld extends React.Component {
         let my = "My new row";
         return React.createElement(
             "h1",
-            { title: this.props.title },
+            { style: { backgroundColor: "#eeeeee" }, title: this.props.title },
             "Hello World ",
             this.props.myName,
             "  and url ",

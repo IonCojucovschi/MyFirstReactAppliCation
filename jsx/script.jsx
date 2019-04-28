@@ -6,7 +6,7 @@ class HelloWorld extends React.Component{
     
     render(){
         let my="My new row";
-        return (<h1 title={this.props.title} >Hello World {this.props.myName}  and url {this.getSomeUrl()}</h1>)
+        return (<h1 style={{backgroundColor:"#eeeeee"}} title={this.props.title} >Hello World {this.props.myName}  and url {this.getSomeUrl()}</h1>)
     }
 }
 
