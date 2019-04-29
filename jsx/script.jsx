@@ -9,24 +9,80 @@ class Clock extends React.Component{
        this.state={
          currentTime:(new Date()).toLocaleString()  
        }
-       this.clockLauncer()
     }
+    /*
+////method that is executing until create the component 
+componentWillMount(){}
+componentDidMount(){}
+
+///methods thas is executing in moment when component was created 
+componentWillReceiveProps(){}
+shouldComponentUpdate(){}
+componentWillUpdate(){}
+componentDidUpdate(){}
+
+///method that is executing in moment when component is destroied
+componentWillUnmount(){}
+
+*/
+componentWillMount()
+{
+    console.log("element will be mount")
+}
+componentDidMount()
+{
+    console.log("component was mount")
+    this.clockLauncer()
+
+}
+
+componentWillUpdate()
+{
+    console.log("component was updated")
+}
+componentWillUnmount()
+{
+    clearInterval(this.state.diapazon)
+}
+
 
 clockLauncer()
 {
-    setInterval(()=>{
+   let diapazon= setInterval(()=>{
         console.log("Time was change !!");
         this.setState({
             currentTime:(new Date()).toLocaleString()  
         });
     },1000);
+    this.setState({diapazon:diapazon})
 }
     render(){
-        return <DigitalClock time={this.state.currentTime}/>
+        return (
+        <div>
+                <DigitalClock time={this.state.currentTime}/>
+                <p>Clock will be remover  in  {this.props.seconds} seconds ..</p>
+        </div>
+            )
     }
 }
 
 
-ReactDOM.render(
-    <Clock/>,document.getElementById("root")
-);
+
+
+let seconds=5;
+let interval=setInterval(()=>{
+    if(seconds===0)
+    {
+        ReactDOM.render(
+            <div><p>clock has been removed</p></div>,document.getElementById("root")
+        )
+        clearInterval(interval)
+    }else{
+        ReactDOM.render(
+            <Clock seconds={seconds}/>,document.getElementById("root")
+        )
+        seconds--
+    }
+},1000);
+
+
