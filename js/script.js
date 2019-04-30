@@ -1,13 +1,22 @@
 class Button extends React.Component {
-    clockHANDLER() {
-        console.log("button was clicked!!!!");
+
+    constructor(props) {
+        super(props);
+        this.clockHANDLER = this.clockHANDLER.bind(this);
+        this.state = { counter: 0 };
     }
 
+    clockHANDLER() {
+        console.log("button was clicked!!!!");
+        this.setState({ counter: ++this.state.counter });
+    }
     render() {
         return React.createElement(
             "button",
-            { onClick: this.clockHANDLER.bind(this) },
-            "click me!"
+            { onClick: this.clockHANDLER },
+            "click me! you click ",
+            this.state.counter,
+            " times"
         );
     }
 
